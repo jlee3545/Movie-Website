@@ -9,5 +9,5 @@ WHERE datname = 'movie_db';
 
 DROP DATABASE movie_db;
 
-DROP USER movie_db_owner;
-DROP USER movie_db_appuser;
+--DROP USER movie_db_owner;
+--DROP USER movie_db_appuser;
