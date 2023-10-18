@@ -1,7 +1,9 @@
 package com.techelevator.dao;
 
 import com.techelevator.model.Movie;
+import com.techelevator.model.User;
 import com.techelevator.model.WishList;
+import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 
@@ -29,17 +31,29 @@ public class JdbcUserMovieDao {
 
         return movies;
     }
-    public List<Movie> addToWishList(int userId, int movieId){
+    public List<Movie> addToWishList(User user, Movie movie){
         List <Movie> movies = new ArrayList<>();
 
         String sql = "INSERT INTO users_movies (user_id, movie_id) VALUES(?,?)";
 
 //        try {
-            jdbcTemplate.queryForRowSet(sql, userId, movieId);
+            jdbcTemplate.queryForRowSet(sql, user.getId(), movie.getMovieId());
 //        } catch (DataAccessException e){
 //            throw new DataAccessException(e.toString()) {};
 //        }
         return movies;
+    }
+
+    public int deleteFromWishList(Movie movieId , User userId){
+        String sql = "DELETE FROM users_movies WHERE movie_id = ? AND user_id = ?";
+        int row =0;
+        try{
+            row = jdbcTemplate.update(sql, movieId, userId);
+        } catch (DataAccessException e) {
+            throw new DataAccessException(e.toString()) {
+            };
+        }
+        return row;
     }
 
     private Movie mapRowToMovie(SqlRowSet rs) {
