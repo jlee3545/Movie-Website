@@ -1,6 +1,9 @@
 package com.techelevator.dao;
 
-import com.techelevator.model.*;
+import com.techelevator.model.Collection;
+import com.techelevator.model.Genre;
+import com.techelevator.model.Movie;
+import com.techelevator.model.Person;
 
 import java.util.List;
 
