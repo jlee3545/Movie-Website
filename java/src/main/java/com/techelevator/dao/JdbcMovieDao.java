@@ -17,7 +17,7 @@ public class JdbcMovieDao implements MovieDao {
     public JdbcMovieDao(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
-
+    @Override
     public List<Movie> getAllMovies(){
         List<Movie> movies = new ArrayList<>();
         String sql = "SELECT * FROM movie";
@@ -29,7 +29,7 @@ public class JdbcMovieDao implements MovieDao {
         }
         return  movies;
     }
-
+    @Override
     public Movie getMovieById(int id){
         Movie movie = new Movie();
         String sql = "SELECT * FROM movie WHERE movie_id = ?";
@@ -41,7 +41,7 @@ public class JdbcMovieDao implements MovieDao {
         }
         return movie;
     }
-
+    @Override
     public List<Movie> getMoviesByDirectorId(Person id){
         List<Movie> movies = new ArrayList<>();
         String sql = "SELECT * FROM movie WHERE director_id =?";
@@ -53,7 +53,7 @@ public class JdbcMovieDao implements MovieDao {
         }
         return movies;
     }
-
+    @Override
     public List<Movie> getMoviesByActorId(Person id){
         List<Movie> movies = new ArrayList<>();
         String sql = "SELECT * FROM movie " +
@@ -67,7 +67,7 @@ public class JdbcMovieDao implements MovieDao {
         }
         return movies;
     }
-
+    @Override
     public List<Movie> getMoviesByGenreId(Genre id){
         List<Movie> movies = new ArrayList<>();
         String sql = "SELECT * FROM movie " +
@@ -81,7 +81,7 @@ public class JdbcMovieDao implements MovieDao {
         }
         return movies;
     }
-
+    @Override
     public List<Movie> getMoviesByCollectionId(Collection id){
         List<Movie> movies = new ArrayList<>();
         String sql = "SELECT * FROM movie " +
@@ -94,7 +94,7 @@ public class JdbcMovieDao implements MovieDao {
         }
         return movies;
     }
-
+    @Override
     public Integer addMovie(Movie movie){
         String sql = "INSERT INTO movie (title, overview, poster_path, release_date, length_minutes, director_id, collection_id) " +
                 "VALUES(?,?,?,?,?,?,?) RETURNING movie_id";
@@ -107,6 +107,7 @@ public class JdbcMovieDao implements MovieDao {
         }
         return id;
     }
+    @Override
     public void updateMovie(Movie movie){
 
         String sql = "UPDATE movie " +

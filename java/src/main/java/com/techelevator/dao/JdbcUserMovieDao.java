@@ -10,13 +10,13 @@ import org.springframework.jdbc.support.rowset.SqlRowSet;
 import java.util.ArrayList;
 import java.util.List;
 
-public class JdbcUserMovieDao {
+public class JdbcUserMovieDao implements UserMovieDao {
 
     public final JdbcTemplate jdbcTemplate;
     public JdbcUserMovieDao(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
-
+    @Override
     public List<Movie> getUserWishList(int id){
         List<Movie> movies = new ArrayList<>();
         String sql = "SELECT * FROM movie " +
@@ -31,6 +31,7 @@ public class JdbcUserMovieDao {
 
         return movies;
     }
+    @Override
     public List<Movie> addToWishList(User user, Movie movie){
         List <Movie> movies = new ArrayList<>();
 
@@ -43,7 +44,7 @@ public class JdbcUserMovieDao {
 //        }
         return movies;
     }
-
+    @Override
     public int deleteFromWishList(Movie movieId , User userId){
         String sql = "DELETE FROM users_movies WHERE movie_id = ? AND user_id = ?";
         int row =0;

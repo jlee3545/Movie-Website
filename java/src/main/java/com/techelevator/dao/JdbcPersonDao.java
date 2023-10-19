@@ -13,6 +13,7 @@ public class JdbcPersonDao implements PersonDao {
     public JdbcPersonDao(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
+    @Override
     public List<Person> getAllActorsFromMovie(Movie id){
         List<Person> actors = new ArrayList<>();
         String sql="SELECT * FROM person " +
@@ -26,7 +27,7 @@ public class JdbcPersonDao implements PersonDao {
         }
         return actors;
     }
-
+    @Override
     public Person getPersonById(int id){
         Person person = null;
         String sql = "SELECT * FROM person " +

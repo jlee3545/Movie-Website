@@ -13,7 +13,7 @@ public class JdbcGenreDao implements GenreDao{
     public JdbcGenreDao(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
-
+    @Override
     public List<Genre> getAllGenres(){
         List<Genre> genres = new ArrayList<>();
 
@@ -27,6 +27,7 @@ public class JdbcGenreDao implements GenreDao{
         return  genres;
 
     }
+    @Override
     public Genre getGenreById(int id){
         Genre genre = null;
 
