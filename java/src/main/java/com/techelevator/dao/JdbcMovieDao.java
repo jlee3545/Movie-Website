@@ -43,7 +43,7 @@ public class JdbcMovieDao implements MovieDao {
         return movie;
     }
     @Override
-    public List<Movie> getMoviesByDirectorId(Person id){
+    public List<Movie> getMoviesByDirectorId(int id){
         List<Movie> movies = new ArrayList<>();
         String sql = "SELECT * FROM movie WHERE director_id =?";
 
@@ -55,7 +55,7 @@ public class JdbcMovieDao implements MovieDao {
         return movies;
     }
     @Override
-    public List<Movie> getMoviesByActorId(Person id){
+    public List<Movie> getMoviesByActorId(int id){
         List<Movie> movies = new ArrayList<>();
         String sql = "SELECT * FROM movie " +
                 "JOIN movie_actor ON movie.movie_id = movie_actor.movie_id " +
@@ -69,7 +69,7 @@ public class JdbcMovieDao implements MovieDao {
         return movies;
     }
     @Override
-    public List<Movie> getMoviesByGenreId(Genre id){
+    public List<Movie> getMoviesByGenreId(int id){
         List<Movie> movies = new ArrayList<>();
         String sql = "SELECT * FROM movie " +
                 "JOIN movie_genre ON movie.movie_id = movie_genre.movie_id " +
@@ -83,7 +83,7 @@ public class JdbcMovieDao implements MovieDao {
         return movies;
     }
     @Override
-    public List<Movie> getMoviesByCollectionId(Collection id){
+    public List<Movie> getMoviesByCollectionId(int id){
         List<Movie> movies = new ArrayList<>();
         String sql = "SELECT * FROM movie " +
                 "WHERE collection_id=?";
@@ -106,6 +106,7 @@ public class JdbcMovieDao implements MovieDao {
         } catch (DataAccessException e){
             throw new DataAccessException(e.toString()) {};
         }
+
         return id;
     }
     @Override
@@ -146,7 +147,7 @@ public class JdbcMovieDao implements MovieDao {
         movie.setTitle(rs.getString("title"));
         movie.setPosterPath(rs.getString("poster_path"));
         movie.setOverview(rs.getString("overview"));
-        movie.setReleaseDate(rs.getString("release_date"));
+        movie.setReleaseDate(rs.getDate("release_date").toLocalDate());
         movie.setLength(rs.getInt("length_minutes"));
         movie.setCollectionId(rs.getInt("collection_id"));
 

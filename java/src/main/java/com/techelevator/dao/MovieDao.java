@@ -10,10 +10,10 @@ import java.util.List;
 public interface MovieDao {
     List<Movie> getAllMovies();
     Movie getMovieById(int id);
-    List<Movie> getMoviesByDirectorId(Person id);
-    List<Movie> getMoviesByActorId(Person id);
-    List<Movie> getMoviesByGenreId(Genre id);
-    List<Movie> getMoviesByCollectionId(Collection id);
+    List<Movie> getMoviesByDirectorId(int id);
+    List<Movie> getMoviesByActorId(int id);
+    List<Movie> getMoviesByGenreId(int id);
+    List<Movie> getMoviesByCollectionId(int id);
     Integer addMovie(Movie movie);
     void updateMovie(Movie movie);
 //    int deleteMovie(Movie id);

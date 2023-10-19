@@ -7,6 +7,7 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -64,7 +65,7 @@ public class JdbcUserMovieDao implements UserMovieDao {
         movie.setTitle(rs.getString("title"));
         movie.setPosterPath(rs.getString("poster_path"));
         movie.setOverview(rs.getString("overview"));
-        movie.setReleaseDate(rs.getString("release_date"));
+        movie.setReleaseDate(rs.getDate("release_date").toLocalDate());
         movie.setLength(rs.getInt("length_minutes"));
         movie.setCollectionId(rs.getInt("collection_id"));
 

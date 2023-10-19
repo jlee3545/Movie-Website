@@ -1,11 +1,13 @@
 package com.techelevator.model;
 
+import java.time.LocalDate;
+
 public class Movie {
     private int movieId;
     private String title;
     private String overview;
     private String posterPath;
-    private String releaseDate;
+    private LocalDate releaseDate;
     private int length;
     private int directorId;
     private int collectionId;
@@ -42,11 +44,11 @@ public class Movie {
         this.posterPath = posterPath;
     }
 
-    public String getReleaseDate() {
+    public LocalDate getReleaseDate() {
         return releaseDate;
     }
 
-    public void setReleaseDate(String releaseDate) {
+    public void setReleaseDate(LocalDate releaseDate) {
         this.releaseDate = releaseDate;
     }
 
