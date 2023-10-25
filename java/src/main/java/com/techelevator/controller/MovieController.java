@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.annotation.HttpConstraint;
 import javax.validation.Valid;
 import java.util.List;
 
@@ -50,5 +49,11 @@ public class MovieController {
     @RequestMapping( path = "/add/movie", method = RequestMethod.POST)
     public Integer addMovie(@RequestBody @Valid Movie movie){
         return movieDao.addMovie(movie);
+    }
+
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @RequestMapping( path = "/movie/{id}/edit", method = RequestMethod.PUT)
+    public Movie updateMovie(@RequestBody @Valid Movie movie, @PathVariable int id){
+        return movieDao.updateMovie(movie, id);
     }
 }

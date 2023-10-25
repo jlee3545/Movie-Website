@@ -110,19 +110,20 @@ public class JdbcMovieDao implements MovieDao {
         return id;
     }
     @Override
-    public void updateMovie(Movie movie){
+    public Movie updateMovie(Movie movie, int id){
 
         String sql = "UPDATE movie " +
                 "SET title =?, overview = ?, poster_path =?, release_date =?, " +
                 "length_minutes =?, director_id =?, collection_id=? " +
                 "WHERE movie_id = ?";
         try {
-            jdbcTemplate.update(sql,movie.getTitle(), movie.getOverview(), movie.getPosterPath(), movie.getReleaseDate(), movie.getLength(), movie.getDirectorId(), movie.getCollectionId(), movie.getMovieId());
+            jdbcTemplate.update(sql,movie.getTitle(), movie.getOverview(), movie.getPosterPath(), movie.getReleaseDate(), movie.getLength(), movie.getDirectorId(), movie.getCollectionId(), id);
 
         } catch (DataAccessException e) {
             throw new DataAccessException("Error Updating") {
             };
         }
+        return movie;
     }
 //    public int deleteMovie(Movie id){
 //        String sql = "UPDATE movie " +

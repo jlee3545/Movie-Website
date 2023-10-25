@@ -4,10 +4,11 @@ import com.techelevator.model.Collection;
 import com.techelevator.model.Genre;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@Component
 public class JdbcCollectionDao implements CollectionDao {
     public final JdbcTemplate jdbcTemplate;
     public JdbcCollectionDao(JdbcTemplate jdbcTemplate) {

@@ -4,10 +4,11 @@ import com.techelevator.model.Genre;
 import com.techelevator.model.Movie;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@Component
 public class JdbcGenreDao implements GenreDao{
     public final JdbcTemplate jdbcTemplate;
     public JdbcGenreDao(JdbcTemplate jdbcTemplate) {
@@ -17,7 +18,7 @@ public class JdbcGenreDao implements GenreDao{
     public List<Genre> getAllGenres(){
         List<Genre> genres = new ArrayList<>();
 
-        String sql = "SELECT * FROM genres;";
+        String sql = "SELECT * FROM genre;";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
 

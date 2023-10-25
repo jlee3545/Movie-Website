@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface UserMovieDao {
     List<Movie> getUserWishList(int id);
-    List<Movie> addToWishList(User user, Movie movie);
-    int deleteFromWishList(Movie movieId , User userId);
+    void addToWishList(int userId, int movieId);
+    int deleteFromWishList(int movieId , int userId);
 }

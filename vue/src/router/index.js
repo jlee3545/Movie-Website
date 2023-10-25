@@ -5,6 +5,9 @@ import Login from '../views/Login.vue'
 import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
+import Movies from '../views/AllMovies.vue'
+import Movie from '../views/Movie.vue'
+import Genre from '../views/MovieByGenre.vue'
 
 Vue.use(Router)
 
@@ -49,6 +52,30 @@ const router = new Router({
       path: "/register",
       name: "register",
       component: Register,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: "/movies",
+      name: "movies",
+      component: Movies,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: "/movie/:id",
+      name: "movie",
+      component: Movie,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: "/genre/:id/movies",
+      name: "genre",
+      component: Genre,
       meta: {
         requiresAuth: false
       }

@@ -19,7 +19,11 @@ if(currentToken != null) {
 export default new Vuex.Store({
   state: {
     token: currentToken || '',
-    user: currentUser || {}
+    user: currentUser || {},
+    genres:[],
+    genre:{},
+    movie:{},
+    movies:[]
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -37,6 +41,18 @@ export default new Vuex.Store({
       state.token = '';
       state.user = {};
       axios.defaults.headers.common = {};
+    },
+    SET_MOVIES(state, movies){
+      state.movies = movies;
+    },
+    SET_MOVIE(state, movie){
+      state.movie = movie;
+    },
+    SET_GENRES(state, genres){
+      state.genres = genres;
+    },
+    SET_GENRE(state, genre){
+      state.genre= genre
     }
   }
 })

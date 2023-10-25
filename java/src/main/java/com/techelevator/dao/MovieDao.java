@@ -15,6 +15,6 @@ public interface MovieDao {
     List<Movie> getMoviesByGenreId(int id);
     List<Movie> getMoviesByCollectionId(int id);
     Integer addMovie(Movie movie);
-    void updateMovie(Movie movie);
+    Movie updateMovie(Movie movie, int id);
 //    int deleteMovie(Movie id);
 }

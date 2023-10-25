@@ -4,17 +4,18 @@ import com.techelevator.model.Movie;
 import com.techelevator.model.Person;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@Component
 public class JdbcPersonDao implements PersonDao {
     public final JdbcTemplate jdbcTemplate;
     public JdbcPersonDao(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
     @Override
-    public List<Person> getAllActorsFromMovie(Movie id){
+    public List<Person> getAllActorsFromMovie(int id){
         List<Person> actors = new ArrayList<>();
         String sql="SELECT * FROM person " +
                 "JOIN movie_actor ON movie_actor.actor_id = person.actor_id " +
@@ -60,7 +61,7 @@ public class JdbcPersonDao implements PersonDao {
     public Person getPersonByActorId(int id) {
         Person person = null;
         String sql = "SELECT * FROM person " +
-                "JOIN movie_actor ON person.person_id = movie_actor.actor_id" +
+                "JOIN movie_actor ON person.person_id = movie_actor.actor_id " +
                 "WHERE actor_id = ?";
 
         SqlRowSet result = jdbcTemplate.queryForRowSet(sql, id);
