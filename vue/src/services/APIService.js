@@ -19,6 +19,8 @@ export default{
 
     getGenreById(id){
         return axios.get(`/genre/${id}`)
-    }
+    },
+
+    
 
 }
