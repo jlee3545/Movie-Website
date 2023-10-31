@@ -16,6 +16,7 @@ import java.util.List;
 @CrossOrigin
 public class UserMovieController {
     private final UserMovieDao userMovieDao;
+
     @Autowired
     public UserMovieController(UserMovieDao userMovieDao){
         this.userMovieDao = userMovieDao;
