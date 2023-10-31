@@ -72,6 +72,19 @@ public class JdbcPersonDao implements PersonDao {
         return person;
     }
 
+    @Override
+    public List<Person> getAllPeople() {
+        List<Person> people = new ArrayList<>();
+        String sql="SELECT * FROM person";
+
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+
+        while(results.next()){
+            people.add(mapRowToPerson(results));
+        }
+        return people;
+    }
+
 
     private Person mapRowToPerson(SqlRowSet rs) {
         Person person = new Person();

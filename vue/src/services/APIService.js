@@ -21,6 +21,10 @@ export default{
         return axios.get(`/genre/${id}`)
     },
 
+    getAllPeople(){
+        return axios.get("/people")
+    }
+
     
 
 }
