@@ -10,4 +10,6 @@ public interface PersonDao {
     Person getPersonByDirectorId(int id);
     Person getPersonByActorId(int id);
 
+    List<Person> getAllPeople();
+
 }

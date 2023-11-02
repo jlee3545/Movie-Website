@@ -8,7 +8,8 @@ import store from '../store/index'
 import Movies from '../views/AllMovies.vue'
 import Movie from '../views/Movie.vue'
 import Genre from '../views/MovieByGenre.vue'
-
+import People from '../views/People.vue'
+import PersonPage from '../views/PersonPage.vue'
 Vue.use(Router)
 
 /**
@@ -79,7 +80,25 @@ const router = new Router({
       meta: {
         requiresAuth: false
       }
-    }
+    },
+    {
+      path: "/people",
+      name: "people",
+      component: People,
+      meta: {
+        requiresAuth: false
+      }
+    },
+   
+
+    {
+      path: "/person/:id",
+      name: "person",
+      component: PersonPage,
+      meta: {
+        requiresAuth: false
+      }
+    },
   ]
 })
 

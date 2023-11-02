@@ -23,7 +23,9 @@ export default new Vuex.Store({
     genres:[],
     genre:{},
     movie:{},
-    movies:[]
+    people:[],
+    movies:[],
+    currentPerson:{}
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -53,6 +55,12 @@ export default new Vuex.Store({
     },
     SET_GENRE(state, genre){
       state.genre= genre
+    },
+    SET_PEOPLE(state, people){
+      state.people = people
+    },
+    SET_PERSON(state,person){
+      state.currentPerson = person
     }
   }
 })

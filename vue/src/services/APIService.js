@@ -21,4 +21,16 @@ export default{
         return axios.get(`/genre/${id}`)
     },
 
+    getAllPeople(){
+        return axios.get("/people")
+    },
+
+    getMovieByPersonId(id){
+        return axios.get(`/person/${id}/movies`)
+    },
+
+    getPersonById(id){
+        return axios.get(`/person/${id}`)
+    }
+
 }
