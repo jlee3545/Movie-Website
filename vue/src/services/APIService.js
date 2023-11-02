@@ -21,6 +21,4 @@ export default{
         return axios.get(`/genre/${id}`)
     },
 
-    
-
 }
