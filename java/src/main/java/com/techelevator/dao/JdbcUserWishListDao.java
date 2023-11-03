@@ -1,21 +1,18 @@
 package com.techelevator.dao;
 
 import com.techelevator.model.Movie;
-import com.techelevator.model.User;
-import com.techelevator.model.WishList;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 @Component
-public class JdbcUserMovieDao implements UserMovieDao {
+public class JdbcUserWishListDao implements UserWishListDao {
 
     public final JdbcTemplate jdbcTemplate;
-    public JdbcUserMovieDao(JdbcTemplate jdbcTemplate) {
+    public JdbcUserWishListDao(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
     @Override
