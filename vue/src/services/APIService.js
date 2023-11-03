@@ -25,12 +25,16 @@ export default{
         return axios.get("/people")
     },
 
-    getMovieByPersonId(id){
+    getMoviesByPersonId(id){
         return axios.get(`/person/${id}/movies`)
     },
 
     getPersonById(id){
         return axios.get(`/person/${id}`)
+    },
+
+    getActorsByMovieId(id){
+        return axios.get(`/movies/${id}/actors`)
     }
 
 }
