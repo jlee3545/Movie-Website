@@ -18,7 +18,7 @@ public class JdbcPersonDao implements PersonDao {
     public List<Person> getAllActorsFromMovie(int id){
         List<Person> actors = new ArrayList<>();
         String sql="SELECT * FROM person " +
-                "JOIN movie_actor ON movie_actor.actor_id = person.actor_id " +
+                "JOIN movie_actor ON movie_actor.actor_id = person.person_id " +
                 "WHERE movie_id = ?";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, id);

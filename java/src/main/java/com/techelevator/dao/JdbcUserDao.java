@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Objects;
 
 import com.techelevator.exception.DaoException;
+import com.techelevator.model.Person;
 import com.techelevator.model.RegisterUserDto;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.jdbc.CannotGetJdbcConnectionException;
@@ -71,6 +72,8 @@ public class JdbcUserDao implements UserDao {
         return user;
     }
 
+
+
     @Override
     public User createUser(RegisterUserDto user) {
         User newUser = null;
@@ -86,6 +89,23 @@ public class JdbcUserDao implements UserDao {
             throw new DaoException("Data integrity violation", e);
         }
         return newUser;
+    }
+
+    @Override
+    public int getUserIdByUsername(String username) {
+            String sql = "SELECT user_id FROM users " +
+                    "WHERE username = ?";
+
+            SqlRowSet result = jdbcTemplate.queryForRowSet(sql, username);
+
+            int userId = 0;
+            if(result.next()){
+                User user = new User();
+                user.setId(result.getInt("user_id"));
+                userId = user.getId();
+            }
+
+            return userId;
     }
 
     private User mapRowToUser(SqlRowSet rs) {

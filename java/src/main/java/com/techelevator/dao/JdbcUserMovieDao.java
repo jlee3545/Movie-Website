@@ -19,13 +19,14 @@ public class JdbcUserMovieDao implements UserMovieDao {
         this.jdbcTemplate = jdbcTemplate;
     }
     @Override
-    public List<Movie> getUserWishList(int id){
+    public List<Movie> getUserWishList(String username){
         List<Movie> movies = new ArrayList<>();
         String sql = "SELECT * FROM movie " +
                 "JOIN users_movies ON movie.movie_id = users_movies.movie_id " +
-                "WHERE user_id =?";
+                "JOIN users ON users.user_id = users_movies.user_id " +
+                "WHERE username =?";
 
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, id);
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, username);
 
         while(results.next()){
             movies.add(mapRowToMovie(results));
@@ -36,13 +37,13 @@ public class JdbcUserMovieDao implements UserMovieDao {
     @Override
     public void addToWishList(int userId, int movieId){
 
-        String sql = "INSERT INTO users_movies (user_id, movie_id) VALUES(?,?)";
+        String sql = "INSERT INTO users_movies (user_id, movie_id) VALUES(?,?) RETURNING movie_id";
 
-//        try {
+        try {
             jdbcTemplate.queryForRowSet(sql, userId, movieId);
-//        } catch (DataAccessException e){
-//            throw new DataAccessException(e.toString()) {};
-//        }
+        } catch (DataAccessException e){
+            throw new DataAccessException(e.toString()) {};
+        }
     }
     @Override
     public int deleteFromWishList(int movieId , int userId){
