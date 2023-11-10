@@ -35,6 +35,18 @@ export default{
 
     getActorsByMovieId(id){
         return axios.get(`/movies/${id}/actors`)
-    }
+    },
+
+    getWishList(){
+        return axios.get('/wishlist')
+    },
+
+    addToWishlist(id){
+        return axios.post(`/movie/${id}/wishlist-add`)
+    },
+
+    deleteFromWishlist(id){
+        return axios.delete(`/movie/${id}/wishlist-delete`)
+    },
 
 }

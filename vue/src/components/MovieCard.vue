@@ -6,14 +6,18 @@
     </router-link>
   </div>
       <h2 class="movie-title">{{movie.title}} ({{movie.releaseDate.substring(0,4)}})</h2>
+      <add-and-delete-button-vue/>
 </div>
+
 </template>
 
 <script>
+import AddAndDeleteButtonVue from './AddAndDeleteButton.vue';
 
 export default {
     name: "movieCard",
     props: { movie: Object },
+    components: {AddAndDeleteButtonVue}
 }
 </script>
 

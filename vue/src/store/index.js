@@ -25,7 +25,8 @@ export default new Vuex.Store({
     movie:{},
     people:[],
     movies:[],
-    currentPerson:{}
+    currentPerson:{},
+    watchList:[],
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -61,6 +62,9 @@ export default new Vuex.Store({
     },
     SET_PERSON(state,person){
       state.currentPerson = person
+    }, 
+    SET_WATCH_LIST(state, movies){
+      state.watchList = movies
     }
   }
 })

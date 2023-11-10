@@ -10,6 +10,7 @@ import Movie from '../views/Movie.vue'
 import Genre from '../views/MovieByGenre.vue'
 import People from '../views/People.vue'
 import PersonPage from '../views/PersonPage.vue'
+import WatchList from '../views/Wishlist.vue'
 Vue.use(Router)
 
 /**
@@ -95,6 +96,15 @@ const router = new Router({
       path: "/person/:id",
       name: "person",
       component: PersonPage,
+      meta: {
+        requiresAuth: false
+      }
+    },
+
+    {
+      path: "/watchlist",
+      name: "watchlist",
+      component: WatchList,
       meta: {
         requiresAuth: false
       }
