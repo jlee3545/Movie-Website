@@ -9,10 +9,10 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
 @Component
-public class JdbcUserWishListDao implements UserWishListDao {
+public class JdbcUserMovieDao implements UserMovieDao {
 
     public final JdbcTemplate jdbcTemplate;
-    public JdbcUserWishListDao(JdbcTemplate jdbcTemplate) {
+    public JdbcUserMovieDao(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
     @Override
@@ -31,6 +31,9 @@ public class JdbcUserWishListDao implements UserWishListDao {
 
         return movies;
     }
+
+
+
     @Override
     public void addToWishList(int userId, int movieId){
 
