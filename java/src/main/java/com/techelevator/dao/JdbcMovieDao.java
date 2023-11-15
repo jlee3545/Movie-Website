@@ -68,6 +68,17 @@ public class JdbcMovieDao implements MovieDao {
         }
         return movies;
     }
+
+    public List<Movie>getMoviesByPerson(int id){
+        List <Movie> allMovies = getMoviesByDirectorId(id);
+
+        List <Movie> actedMovies = getMoviesByActorId(id);
+
+        allMovies.addAll(actedMovies);
+
+        return allMovies;
+    }
+
     @Override
     public List<Movie> getMoviesByGenreId(int id){
         List<Movie> movies = new ArrayList<>();
