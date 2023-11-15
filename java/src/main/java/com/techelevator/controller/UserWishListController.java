@@ -21,12 +21,12 @@ public class UserWishListController {
 
     @RequestMapping( path = "/wishlist", method = RequestMethod.GET)
     public List<Movie> getUserWishlist(Principal principal ){
-        return userMovieDao.getUserWishList(principal);
+        return userMovieDao.getUserWishList(principal.getName());
     }
 
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping( path = "/movie/{id}/wishlist-add", method = RequestMethod.POST)
-    public void addToWishlist(int userId,  @PathVariable int movieId){
+    public void addToWishlist(Principal principal  @PathVariable int movieId){
         userMovieDao.addToWishList(userId, movieId);
     }
 

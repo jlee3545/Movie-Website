@@ -36,11 +36,14 @@ public class MovieController {
     public List<Movie> getMoviesByActorId(@PathVariable int id){
         return movieDao.getMoviesByActorId(id);
     }
+    @RequestMapping( path = "/person/{id}/movies", method = RequestMethod.GET)
+    public List<Movie> getMoviesByPerson(@PathVariable int id){
+        return movieDao.getMoviesByPerson(id);
+    }
     @RequestMapping( path = "/genre/{id}/movies", method = RequestMethod.GET)
     public List<Movie> getMoviesByGenreId(@PathVariable int id){
         return movieDao.getMoviesByGenreId(id);
     }
-
     @RequestMapping( path = "/collection/{id}/movies", method = RequestMethod.GET)
     public List<Movie> getMoviesByCollectionId(@PathVariable int id){
         return movieDao.getMoviesByCollectionId(id);
