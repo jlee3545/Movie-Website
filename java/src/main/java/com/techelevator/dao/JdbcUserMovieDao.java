@@ -9,10 +9,10 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
 @Component
-public class JdbcUserWishListDao implements UserWishListDao {
+public class JdbcUserMovieDao implements UserMovieDao {
 
     public final JdbcTemplate jdbcTemplate;
-    public JdbcUserWishListDao(JdbcTemplate jdbcTemplate) {
+    public JdbcUserMovieDao(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
     @Override
@@ -31,16 +31,19 @@ public class JdbcUserWishListDao implements UserWishListDao {
 
         return movies;
     }
+
+
+
     @Override
     public void addToWishList(int userId, int movieId){
 
-        String sql = "INSERT INTO users_movies (user_id, movie_id) VALUES(?,?)";
+        String sql = "INSERT INTO users_movies (user_id, movie_id) VALUES(?,?) RETURNING movie_id";
 
-//        try {
+        try {
             jdbcTemplate.queryForRowSet(sql, userId, movieId);
-//        } catch (DataAccessException e){
-//            throw new DataAccessException(e.toString()) {};
-//        }
+        } catch (DataAccessException e){
+            throw new DataAccessException(e.toString()) {};
+        }
     }
     @Override
     public int deleteFromWishList(int movieId , int userId){
