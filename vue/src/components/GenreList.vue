@@ -33,7 +33,14 @@ export default {
     font-family: "Montserrat";
     font-size: 1.5rem;
     padding: 1rem;
+  }
+
+  ul a{
     text-decoration: none;
+  }
+
+  li:hover{
+    color: rgb(211, 211, 253);
   }
 
 </style>

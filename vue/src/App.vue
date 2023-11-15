@@ -1,21 +1,17 @@
 <template>
   <div id="app">
     <Header/>
-    <div id="nav">
-      <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
-      <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
-      <router-link v-bind:to="{name: 'people'}"> Browse Movies by People </router-link>
-      <router-link v-bind:to="{name: 'watchlist'}"> My Watch List </router-link>
-
-    </div>
+    <Navigation/>
     <router-view />
   </div>
 </template>
 
 <script>
 import Header from './components/Header.vue'
+import Navigation from './components/Navigation.vue';
+
 export default {
-  components:{Header}
+  components:{Header, Navigation}
 }
 </script>
 
@@ -27,7 +23,7 @@ h1{
   font-family: "Montserrat";
   text-align: center;
   font-size: 3rem;
-  color:rgba(240, 255, 255, 0.705);
+  color:#fff;
 }
 
 h2{
@@ -35,7 +31,9 @@ h2{
 }
 
 #app{
-  background: rgb(14, 14, 53);
+  background: rgb(49, 49, 173);
   width: 100vw;
 }
+@import'~bootstrap/dist/css/bootstrap.css'
+
 </style>

@@ -2,6 +2,10 @@
   <div>
     <button v-on:click="isOnWatchList ? deleteMovieFromWatchList() : addMovieToWatchlist()">
     {{ isOnWatchList ? "Delete From WatchList":"Add to Watchlist"}}</button>
+
+    {{isOnWatchList}}
+
+
   </div>
 </template>
 
@@ -9,16 +13,16 @@
 
 import APIService from '../services/APIService';
 export default {
-  props: { currentMovie: Object },
+  props: { movie:Object },
   methods: {
     addMovieToWatchlist() {
-      APIService.addToWishlist(this.$route.params.id).then(
+      APIService.addToWishlist(this.movie.movieId).then(
         window.alert("Movie added to watchlist")
       )
     },
 
     deleteMovieFromWatchList() {
-      APIService.deleteFromWishlist(this.$route.params.id).then(
+      APIService.deleteFromWishlist(this.movie.movieId).then(
         window.alert("Movie deleted from list")
       )
     }
@@ -28,7 +32,7 @@ export default {
     isOnWatchList() {
       let movieIndex = 0;
       for (let i = 0; i < this.$store.state.movies.length; i++) {
-        if (this.$store.state.movies[i].movieId == this.currentMovie.movieId) {
+        if (this.$store.state.movies[i].movieId == this.movie.movieId) {
           movieIndex = i;
         }
       }
