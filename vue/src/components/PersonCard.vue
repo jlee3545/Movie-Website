@@ -17,7 +17,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .card-container{
     border: black 3px;
     border-width: 3px;

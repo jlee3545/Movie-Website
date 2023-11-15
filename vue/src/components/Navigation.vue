@@ -16,7 +16,6 @@
     margin-right: 0rem;
     margin-left:0rem;
     color:#fff;
-    background:rgba(128, 128, 128, 0.164);
 }
 
 #nav a{

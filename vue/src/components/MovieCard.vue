@@ -10,15 +10,13 @@
 
     <div class="card" style="width: 18rem;">
       <router-link v-bind:to="{ name: 'movie', params: { id: movie.movieId } }">
-  <img class="card-img-top" :src="movie.posterPath"  alt="poster-image">
-  <div class="card-body">
-    <h5 class="card-title">{{ movie.title }} ({{ movie.releaseDate.substring(0, 4) }})</h5>
+        <img class="card-img-top" :src="movie.posterPath" alt="poster-image">
+        <div class="card-body">
+          <h5 class="card-title">{{ movie.title }} ({{ movie.releaseDate.substring(0, 4) }})</h5>
+        </div>
+      </router-link>
+    </div>
   </div>
-</router-link>
-</div>
-  </div>
-
-  
 </template>
 
 <script>
@@ -46,7 +44,7 @@ export default {
 .card-container {
   border: black 3px;
   border-width: 3px;
-  width: 30rem;
+  width: auto;
 }
 
 div.card {
@@ -62,5 +60,28 @@ div.card {
 
 img {
   width: 20rem;
+}
+
+a{
+  text-decoration: none;
+  color: black;
+}
+
+.card-body{
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0);
+  height: 8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border-top:solid;
+  border-width: .1rem;
+}
+
+.card{
+  margin:1rem;
+  border: solid black;
+  border-width: .1rem;
 }
 </style>
