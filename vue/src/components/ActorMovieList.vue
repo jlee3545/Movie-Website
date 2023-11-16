@@ -29,11 +29,12 @@ export default {
     flex-wrap: wrap;
     border: black;
     border-width: 3px;
+    margin-left: 0rem;
   }
 
   #movieCard{
     width: 15rem;
-
+    margin: 2.5rem;
   }
 
   #movieCard img{

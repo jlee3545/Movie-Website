@@ -1,13 +1,5 @@
 <template>
   <div class="card-container">
-    <!-- <div class="card">
-      <router-link v-bind:to="{ name: 'movie', params: { id: movie.movieId } }">
-        <img :src="movie.posterPath" class="image-fit" />
-      </router-link>
-    </div>
-    <h2 class="movie-title">{{ movie.title }} ({{ movie.releaseDate.substring(0, 4) }})</h2>
-    <AddAndDeleteButtonVue v-bind:id="movie.movieId"/> -->
-
     <div class="card" style="width: 18rem;">
       <router-link v-bind:to="{ name: 'movie', params: { id: movie.movieId } }">
         <img class="card-img-top" :src="movie.posterPath" alt="poster-image">
@@ -62,26 +54,48 @@ img {
   width: 20rem;
 }
 
-a{
+.card-body a{
   text-decoration: none;
   color: black;
 }
 
+a{
+  text-decoration: none;
+  margin:0px;
+  padding: 0px;
+}
+
 .card-body{
   text-align: center;
-  background-color: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.603);
   height: 8rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
+  position:absolute;
   border-top:solid;
   border-width: .1rem;
+  top: 18.8rem;
+  border-top: black;
+  color: rgb(236, 236, 236);
+  width:100%;
 }
+.card .card-body:hover{
+  color:rgba(240, 248, 255, 0);
+  background-color: rgba(240, 248, 255, 0);
+  transition:1s;
+}
+
 
 .card{
   margin:1rem;
   border: solid black;
   border-width: .1rem;
+}
+
+.card:hover{
+  transform: scale(1.1);
+  transition:1s;
+
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div id="container">
-    <div id="name"><router-link v-bind:to="{ name: 'home' }"><img src="/Logo.png" alt="logo"/></router-link></div>
+    <div id="name"><router-link v-bind:to="{ name: 'home' }"><img src="Logo.png" alt="logo"/></router-link></div>
   </div>
 </template>
 
@@ -36,12 +36,13 @@ export default {
     }
 
     img{
-      width:20rem;
+      width:10rem;
+      margin:2rem;
     }
 
     img:hover{
       position: relative;
-      transform: rotate(-5deg);
-      transition:.5s;
+      transition:.1s;
+      width:10.25rem;
     }
 </style>
