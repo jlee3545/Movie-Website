@@ -1,9 +1,11 @@
 <template>
   <div>
     <h1>Watch List</h1>
-    <MovieCard v-for="movie in $store.state.watchList"
+    <div class="movies">
+      <MovieCard v-for="movie in $store.state.watchList"
         v-bind:key = "movie.id"
         v-bind:movie = "movie"/>
+    </div>
   </div>
 
 </template>
@@ -23,5 +25,10 @@ export default {
 </script>
 
 <style>
+h1{
+  color: #fff;
+  margin-top: 1rem;
+}
+
 
 </style>

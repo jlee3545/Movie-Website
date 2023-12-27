@@ -1,19 +1,20 @@
 <template>
-  <section>
-  <div>
-    <h1>Movies</h1>
+  <div class="home">
+    <div>
+    <GenreList/>
+    </div>
     <all-movies-list/>
-
   </div>
-  </section>
 </template>
 
 <script>
-import AllMoviesList from '../components/AllMoviesList.vue'
+import GenreList from "../components/GenreList"
+import AllMoviesList from "../components/AllMoviesList.vue"
 export default {
-  components: { AllMoviesList },
+  name: "movies",
+  components:{GenreList, AllMoviesList},
 
-}
+};
 </script>
 
 <style>

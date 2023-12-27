@@ -31,7 +31,7 @@ export default {
     list-style:none;
     color:antiquewhite;
     font-family: "Montserrat";
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     padding: 1rem;
   }
 

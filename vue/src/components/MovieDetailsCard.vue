@@ -1,6 +1,5 @@
 <template>
   <div>
-
     <div id="movie-container">
       <div id="poster"><img :src="$store.state.movie.posterPath" class="image-fit" /></div>
       <div id="movie-info">
@@ -16,7 +15,7 @@
         </div>
         <p><b>Release Date: </b> {{ $store.state.movie.releaseDate }}</p>
         <p><b>Movie Length: </b>{{ $store.state.movie.length }} minutes</p>
-        <p><b>Directed By: </b>{{ $store.state.movie.directorId }}</p>
+        <p><b>Directed By: </b>Christopher Nolan</p>
         <p><b>Description:</b></p>
         <p>{{ $store.state.movie.overview }}</p>
       </div>
@@ -71,7 +70,7 @@ export default {
 
 <style scoped>
 p {
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-family: "Montserrat"
 }
 
@@ -92,6 +91,7 @@ p {
 #movie-title {
   color: black;
   padding: 0px;
+  font-size: 2rem;
 }
 
 #poster img {

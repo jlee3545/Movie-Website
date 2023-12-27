@@ -1,7 +1,7 @@
 
 <template>
 
-    <div id = "movies">
+    <div class = "movies">
         <movie-card v-for="movie in $store.state.movies"
         v-bind:key = "movie.id"
         v-bind:movie = "movie"/>
@@ -25,7 +25,7 @@ export default {
 
 <style>
 
-  #movies{
+  .movies{
     display: inline-flex;
     justify-content:space-around;
     flex-wrap: wrap;

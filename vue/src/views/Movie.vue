@@ -1,6 +1,7 @@
 <template>
 <div>
   <MovieDetailsCard/>
+  <h1>Actors</h1>
   <PeopleList/>
 </div>
 </template>

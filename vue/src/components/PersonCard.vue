@@ -1,9 +1,9 @@
 <template>
 
 <div class="card-container">
-    <div class="card" style="width: 18rem;">
+    <div class="card" style="width: 12rem;">
       <router-link v-bind:to="{ name: 'person', params: { id:person.personId } }">
-        <img class="card-img-top"  :src="person.photo" alt="poster-image">
+        <img class="card-img-top"  :src="person.photo" alt="poster-image"  onerror="this.src='https://harrisburg.psu.edu/sites/harrisburg/files/styles/person_headshot/public/person-default-image.png?itok=P21OkRV8'">
         <div class="card-body">
           <h5 class="card-title">{{person.name}}</h5>
         </div>
@@ -40,6 +40,7 @@ div.card {
 
 img {
   width: 100%;
+  border-radius: .2rem;
 }
 
 .card-body a{
@@ -56,14 +57,14 @@ a{
 .card-body{
   text-align: center;
   background-color: rgba(0, 0, 0, 0.603);
-  height: 8rem;
+  height: 5rem;
   display: flex;
   align-items: center;
   justify-content: center;
   position:absolute;
   border-top:solid;
   border-width: .1rem;
-  top: 18.8rem;
+  top: 12.9rem;
   border-top: black;
   color: rgb(236, 236, 236);
   width:100%;

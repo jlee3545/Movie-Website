@@ -2,7 +2,7 @@ package com.techelevator.controller;
 
 import com.techelevator.dao.UserMovieDao;
 import com.techelevator.model.Movie;
-import com.techelevator.services.WishlistService;
+import com.techelevator.services.UserWishListService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -14,10 +14,10 @@ import java.util.List;
 
 public class UserMovieController {
     private final UserMovieDao userMovieDao;
-    private final WishlistService wishlistService;
+    private final UserWishListService wishlistService;
 
     @Autowired
-    public UserMovieController(UserMovieDao userMovieDao, WishlistService wishlistService) {
+    public UserMovieController(UserMovieDao userMovieDao, UserWishListService wishlistService) {
         this.userMovieDao = userMovieDao;
         this.wishlistService = wishlistService;
     }

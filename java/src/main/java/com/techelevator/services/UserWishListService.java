@@ -2,18 +2,14 @@ package com.techelevator.services;
 
 import com.techelevator.dao.UserDao;
 import com.techelevator.dao.UserMovieDao;
-import com.techelevator.dao.UserWishListDao;
-import com.techelevator.model.User;
-import com.techelevator.model.WishList;
-import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
 @Component
 public class UserWishListService {
     private final UserDao userDao;
-    private final UserWishListDao userMovieDao;
+    private final UserMovieDao userMovieDao;
 
-    public UserWishListService(UserDao userDao, UserWishListDao userMovieDao){
+    public UserWishListService(UserDao userDao, UserMovieDao userMovieDao){
         this.userDao = userDao;
         this.userMovieDao = userMovieDao;
     }

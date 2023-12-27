@@ -1,18 +1,39 @@
 <template>
-  <div class="home">
-    <div>
-    <GenreList/>
-    </div>
-    <all-movies-list/>
-  </div>
+<div id = "welcome" class="fade-in-text">
+  <h1>Welcome to PopFlix!</h1>
+  <p>Use the navigation bar to browse movies and add to your watch list. Enjoy your shows!</p>
+</div>
 </template>
 
 <script>
-import GenreList from "../components/GenreList"
-import AllMoviesList from "../components/AllMoviesList.vue"
 export default {
   name: "home",
-  components:{GenreList, AllMoviesList},
+
 
 };
 </script>
+
+<style scoped>
+#welcome{
+  background-color: black;
+  height: 100vw;
+}
+
+h1{
+  margin-top: 0rem;
+  padding-top: 10rem;
+  font-size: 5rem;
+}
+
+.fade-in-text {
+  font-family: "Barlow";
+  font-size: 150px;
+  animation: fadeIn 5s;
+}
+
+p{
+  text-align: center;
+  width: auto;
+  color: white;
+}
+</style>

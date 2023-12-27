@@ -1,17 +1,15 @@
 <template>
   <div id="app">
     <Header/>
-    <Navigation/>
     <router-view />
   </div>
 </template>
 
 <script>
 import Header from './components/Header.vue'
-import Navigation from './components/Navigation.vue';
 
 export default {
-  components:{Header, Navigation}
+  components:{Header}
 }
 </script>
 
@@ -22,7 +20,7 @@ export default {
 h1{
   font-family: "Montserrat";
   text-align: center;
-  font-size: 3rem;
+  font-size: 2rem;
   color:#fff;
 }
 
@@ -31,7 +29,7 @@ h2{
 }
 
 #app{
-  background: rgb(49, 49, 173);
+  background-color: rgb(0, 5, 82);
   width: 100vw;
 }
 @import'~bootstrap/dist/css/bootstrap.css'
